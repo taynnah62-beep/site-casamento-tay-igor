@@ -177,7 +177,7 @@
   @media (min-width: 768px) { .pause-text { font-size: 30px; } }
   @media (min-width: 1024px) { .pause-text { font-size: 36px; } }
   .rsvp-wash, .pres-wash { position: absolute; inset: 0; pointer-events: none; }
-  .center-block { position: relative; text-align: center; max-width: 480px; width: 100%; margin: 0 auto; padding: 0 4px; }
+  .center-block { position: relative; z-index: 1; text-align: center; max-width: 480px; width: 100%; margin: 0 auto; padding: 0 4px; }
   .cb-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 28px; margin-bottom: 16px; }
   .cb-text { font-size: 15px; color: rgba(32,36,42,0.75); line-height: 1.7; margin-bottom: 32px; }
   .cb-btn a { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 200px; border: 1px solid rgba(32,36,42,0.35); padding: 12px 28px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: #20242A; text-decoration: none; transition: color 0.5s, border-color 0.5s; touch-action: manipulation; }
