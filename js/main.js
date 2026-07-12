@@ -64,7 +64,15 @@
     if (el.sceneCasaCavo) {
       el.sceneCasaCavo.style.opacity = ccIn * (1 - ccOut);
       el.sceneCasaCavo.style.filter = 'blur(' + (ccOut * 12) + 'px)';
+      el.sceneCasaCavo.style.pointerEvents = 'none';
     }
+
+    var headerDone = p >= sceneRanges.sceneCasaCavo[1];
+    [el.lightJourney, el.fusionShield, el.sceneCasaCavo, el.scene01, el.scene00].forEach(function (node) {
+      if (!node) return;
+      node.style.pointerEvents = 'none';
+      node.style.visibility = headerDone ? 'hidden' : '';
+    });
 
     if (el.paperLayer) {
       var paperPeak = cc[0] + ccSpan * 0.08, paperSettle = cc[0] + ccSpan * 0.22;
