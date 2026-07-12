@@ -1,5 +1,11 @@
 // ===== Header: sistema fixo curto, so 3 cenas =====
 (function () {
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) window.scrollTo(0, 0);
+  });
+
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
   function easeReveal(t) { return 1 - Math.pow(1 - t, 4); }
 
