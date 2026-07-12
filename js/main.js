@@ -28,16 +28,11 @@
   }
 
   var el = {};
-  ['lightJourney', 'fusionShield', 'scene00', 'sceneCasaCavo', 'paperLayer', 'watercolorWrap', 'heroScrim', 'scene01', 'heroName', 'heroDate', 'heroLocation', 'scrollIndicator'].forEach(function (id) {
+  ['lightJourney', 'fusionShield', 'scene00', 'sceneCasaCavo', 'paperLayer', 'watercolorWrap', 'heroScrim', 'scene01', 'heroBlock', 'heroName', 'heroDate', 'heroLocation', 'scrollIndicator'].forEach(function (id) {
     el[id] = document.getElementById(id);
   });
 
-  function fadeIn(node, t, from, to) {
-    if (!node) return;
-    var e = easeReveal(clamp((t - from) / (to - from || 1), 0, 1));
-    node.style.opacity = e;
-    node.style.transform = 'translateY(' + (16 * (1 - e)) + 'px)';
-  }
+  var heroRevealed = false;
 
   function updateHeader() {
     var headerEl = document.getElementById('headerScroll');
@@ -99,10 +94,11 @@
       el.scene01.style.opacity = heroExitOp;
     }
 
-    fadeIn(el.heroName, p, heroR[0] + heroSpan * 0.05, heroR[0] + heroSpan * 0.32);
-    fadeIn(el.heroDate, p, heroR[0] + heroSpan * 0.28, heroR[0] + heroSpan * 0.5);
-    fadeIn(el.heroLocation, p, heroR[0] + heroSpan * 0.45, heroR[0] + heroSpan * 0.65);
-    fadeIn(el.scrollIndicator, p, heroR[0] + heroSpan * 0.62, heroR[0] + heroSpan * 0.85);
+    if (!heroRevealed && p >= heroR[0] + heroSpan * 0.04) {
+      heroRevealed = true;
+      if (el.heroBlock) el.heroBlock.classList.add('in');
+      if (el.scrollIndicator) el.scrollIndicator.classList.add('in');
+    }
   }
 
   document.addEventListener('scroll', function () { requestAnimationFrame(updateHeader); }, { passive: true });
