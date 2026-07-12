@@ -191,6 +191,83 @@
   }
   @media (min-width: 768px) { .cb-title { font-size: 40px; } }
 
+  /* Película editorial */
+  .editorial-film {
+    padding: 56px 0 64px;
+    overflow: hidden;
+    width: 100%;
+  }
+  .film-band { width: 100%; }
+  .film-band--spaced { margin-top: clamp(18px, 3vw, 28px); }
+  .film-band__border {
+    height: 11px;
+    width: 100%;
+    background-image: url('../images/athos-border.svg');
+    background-repeat: repeat-x;
+    background-position: left center;
+    background-size: 64px 11px;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  .film-band__viewport {
+    overflow: hidden;
+    width: 100%;
+    padding: 10px 0;
+  }
+  .film-band__track {
+    display: flex;
+    align-items: stretch;
+    width: max-content;
+    gap: clamp(10px, 1.6vw, 16px);
+    will-change: transform;
+  }
+  .film-band__track--left {
+    animation: film-drift-left 32s linear infinite;
+  }
+  .film-band__track--right {
+    animation: film-drift-right 30s linear infinite;
+  }
+  @keyframes film-drift-left {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+  }
+  @keyframes film-drift-right {
+    0% { transform: translate3d(-50%, 0, 0); }
+    100% { transform: translate3d(0, 0, 0); }
+  }
+  .film-frame {
+    flex: 0 0 auto;
+    height: clamp(168px, 24vw, 260px);
+    margin: 0;
+    overflow: hidden;
+    background: #EDE9E2;
+  }
+  .film-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .film-frame--a { width: clamp(220px, 28vw, 340px); }
+  .film-frame--b { width: clamp(200px, 24vw, 300px); }
+  .film-frame--c { width: clamp(240px, 30vw, 360px); }
+  .film-frame--d { width: clamp(210px, 26vw, 320px); }
+  @media (min-width: 480px) {
+    .editorial-film { padding: 64px 0 72px; }
+    .film-band__border { height: 12px; background-size: 72px 12px; opacity: 0.16; }
+    .film-band__viewport { padding: 12px 0; }
+    .film-frame { height: clamp(188px, 22vw, 272px); }
+  }
+  @media (min-width: 768px) {
+    .editorial-film { padding: 72px 0 84px; }
+    .film-band__border { height: 14px; opacity: 0.18; }
+    .film-band__viewport { padding: 14px 0; }
+    .film-frame { height: clamp(200px, 20vw, 280px); }
+  }
+  @media (min-width: 1024px) {
+    .film-frame { height: 260px; }
+  }
+
   /* Galeria */
   .gallery-intro { max-width: 520px; width: 100%; margin: 0 auto 40px; text-align: center; padding: 0 4px; }
   .gallery-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 28px; margin-bottom: 12px; }
@@ -272,5 +349,6 @@
     }
     .rvl { opacity: 1; transform: none; }
     .ken-burns, .thanks-kb { animation: none !important; }
+    .film-band__track { animation: none !important; transform: none !important; }
     .sparkle { display: none; }
   }
