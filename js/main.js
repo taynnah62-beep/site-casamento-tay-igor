@@ -70,7 +70,7 @@
 
     var cc = sceneRanges.sceneCasaCavo, ccSpan = cc[1] - cc[0];
     var en = fusionRanges.casaCavoEnter, ex = fusionRanges.casaCavoExit;
-    var ccIn = clamp((p - en[0]) / (en[1] - en[0] || 1), 0, 1);
+    var ccIn = easeReveal(clamp((p - en[0]) / (en[1] - en[0] || 1), 0, 1));
     var ccOut = clamp((p - ex[0]) / (ex[1] - ex[0] || 1), 0, 1);
     if (el.sceneCasaCavo) {
       el.sceneCasaCavo.style.opacity = ccIn * (1 - ccOut);
@@ -91,11 +91,22 @@
       el.paperLayer.style.opacity = paperOp;
     }
 
+    var wcStart = cc[0] + ccSpan * 0.04;
+    var wcFull = cc[0] + ccSpan * 0.38;
+    var wcT = clamp((p - wcStart) / (wcFull - wcStart || 1), 0, 1);
+    var wcOp = easeReveal(wcT);
+
     if (el.watercolorWrap) {
-      var wcStart = cc[0] + ccSpan * 0.05, wcFull = cc[0] + ccSpan * 0.26;
-      var wcOp = clamp((p - wcStart) / (wcFull - wcStart || 1), 0, 1);
       el.watercolorWrap.style.opacity = wcOp;
-      if (el.fusionShield) el.fusionShield.style.opacity = (veilOpacity < 1 && wcOp < 0.8) ? '1' : '0';
+      el.watercolorWrap.style.filter = wcOp < 1 ? 'brightness(' + (0.78 + wcOp * 0.22) + ')' : '';
+      if (el.fusionShield) {
+        var shieldOp = 0;
+        if (veilOpacity > 0.02) shieldOp = Math.max(shieldOp, veilOpacity);
+        if (wcOp < 0.98) shieldOp = Math.max(shieldOp, 1 - wcOp);
+        el.fusionShield.style.opacity = clamp(shieldOp, 0, 1);
+      }
+    } else if (el.fusionShield) {
+      el.fusionShield.style.opacity = veilOpacity > 0.02 ? veilOpacity : 0;
     }
 
     var heroR = sceneRanges.scene01, heroSpan = heroR[1] - heroR[0];
