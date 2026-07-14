@@ -1,6 +1,14 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
   html { overflow-x: clip; -webkit-text-size-adjust: 100%; }
-  body { font-family: 'Inter', system-ui, sans-serif; background: #F7F5F1; color: #20242A; overflow-x: hidden; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #F7F5F1;
+    color: #20242A;
+    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
   img, svg { max-width: 100%; height: auto; }
   main { overflow-x: clip; }
 /* ===== HEADER — sistema fixo curto (520vh) ===== */
@@ -107,27 +115,30 @@
   }
 
   /* Nossa Historia */
-  .nh-layout { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+  .nh-layout { display: flex; flex-direction: column; align-items: center; gap: 32px; }
   .nh-photo { width: 100%; max-width: min(360px, 100%); aspect-ratio: 3/4; border-radius: 24px; overflow: hidden; box-shadow: inset 0 0 70px 22px #F7F5F1; flex-shrink: 0; }
   .nh-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
-  .nh-text { max-width: 520px; width: 100%; text-align: justify; }
-  .nh-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 26px; margin-bottom: 20px; text-align: left; }
-  .nh-p { font-family: 'Inter', sans-serif; color: rgba(32,36,42,0.85); font-size: 15px; line-height: 1.75; margin-bottom: 16px; }
+  .nh-text { max-width: 34em; width: 100%; text-align: left; }
+  .nh-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 28px; margin-bottom: 24px; text-align: left; line-height: 1.2; }
+  .nh-p { font-family: 'Inter', sans-serif; color: rgba(32,36,42,0.88); font-size: 16px; line-height: 1.8; margin-bottom: 1.15em; font-weight: 400; }
+  .nh-p:last-child { margin-bottom: 0; }
   @media (min-width: 480px) {
-    .nh-layout { gap: 32px; }
+    .nh-layout { gap: 36px; }
     .nh-photo { border-radius: 28px; }
-    .nh-title { font-size: 28px; margin-bottom: 24px; }
+    .nh-title { font-size: 30px; margin-bottom: 28px; }
+    .nh-p { font-size: 16.5px; line-height: 1.82; margin-bottom: 1.2em; }
   }
   @media (min-width: 768px) {
-    .nh-layout { flex-direction: row; align-items: center; gap: 40px; }
+    .nh-layout { flex-direction: row; align-items: center; gap: 44px; }
     .nh-title { font-size: 34px; }
     .nh-photo { max-width: 320px; }
-    .nh-text { flex: 1; min-width: 0; }
+    .nh-text { flex: 1; min-width: 0; max-width: 36em; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
   }
   @media (min-width: 1024px) {
     .nh-layout { gap: 56px; }
     .nh-title { font-size: 38px; }
     .nh-photo { max-width: 360px; }
+    .nh-p { font-size: 17px; line-height: 1.85; }
   }
 
   /* O Grande Dia */
@@ -135,73 +146,85 @@
   .wd-bg { position: absolute; inset: 0; }
   .wd-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 32%; }
   .wd-overlay { position: absolute; inset: 0; background: rgba(247,245,241,0.70); }
-  .wd-content { position: relative; text-align: center; max-width: 460px; width: 100%; margin: 0 auto; padding: 48px 20px; }
-  .wd-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 30px; margin-bottom: 12px; }
-  .wd-sub { font-family: 'Inter', sans-serif; color: rgba(32,36,42,0.85); font-size: 14px; line-height: 1.6; margin-bottom: 36px; }
-  .wd-item-main { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 18px; margin-bottom: 4px; }
-  .wd-item-sub { font-family: 'Inter', sans-serif; color: rgba(32,36,42,0.75); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .wd-content { position: relative; text-align: center; max-width: 480px; width: 100%; margin: 0 auto; padding: 48px 20px; }
+  .wd-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 30px; margin-bottom: 14px; line-height: 1.15; }
+  .wd-sub { font-family: 'Inter', sans-serif; color: rgba(32,36,42,0.85); font-size: 15px; line-height: 1.7; margin-bottom: 36px; font-weight: 400; }
+  .wd-item-main { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 19px; margin-bottom: 6px; line-height: 1.3; }
+  .wd-item-sub { font-family: 'Inter', sans-serif; color: rgba(32,36,42,0.75); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 400; }
   .wd-dash { width: 1px; height: 22px; background: rgba(86,133,171,0.5); margin: 14px auto; }
   .wd-btn { margin-top: 32px; }
   .wd-btn a { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; border: 1px solid rgba(32,36,42,0.35); padding: 12px 28px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: #20242A; text-decoration: none; transition: color 0.5s, border-color 0.5s; touch-action: manipulation; }
   .wd-btn a:hover { border-color: #5685AB; color: #5685AB; }
-  .wd-note { font-size: 12px; color: rgba(32,36,42,0.5); font-style: italic; margin-top: 16px; line-height: 1.6; padding: 0 8px; }
+  .wd-note { font-size: 13px; color: rgba(32,36,42,0.55); font-style: italic; margin-top: 18px; line-height: 1.7; padding: 0 8px; font-weight: 400; }
+  .wd-note-em {
+    font-style: italic;
+    font-weight: 500;
+    color: rgba(32,36,42,0.82);
+    letter-spacing: 0.01em;
+  }
   @media (min-width: 480px) {
     .wd-content { padding: 56px 24px; }
     .wd-title { font-size: 34px; }
-    .wd-sub { margin-bottom: 44px; }
-    .wd-item-main { font-size: 19px; }
-    .wd-item-sub { font-size: 12px; }
+    .wd-sub { font-size: 15.5px; margin-bottom: 44px; }
+    .wd-item-main { font-size: 20px; }
+    .wd-item-sub { font-size: 12.5px; }
     .wd-dash { height: 26px; margin: 16px auto; }
     .wd-btn { margin-top: 40px; }
     .wd-btn a { padding: 14px 36px; font-size: 13px; letter-spacing: 0.14em; }
+    .wd-note { font-size: 13.5px; }
   }
   @media (min-width: 768px) { .wd-title { font-size: 44px; } }
   @media (min-width: 1024px) { .wd-title { font-size: 52px; } .wd-content { padding: 60px 24px; } }
 
   /* Dress Code */
-  .dc-stack { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 640px; margin: 0 auto; text-align: center; width: 100%; }
-  .dc-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 30px; margin-bottom: 0; text-align: center; width: 100%; }
+  .dc-stack { display: flex; flex-direction: column; align-items: center; gap: 28px; max-width: 640px; margin: 0 auto; text-align: center; width: 100%; }
+  .dc-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 30px; margin-bottom: 0; text-align: center; width: 100%; line-height: 1.15; }
   .dc-thindiv { display: flex; align-items: center; gap: 8px; width: 140px; margin: 0 auto; }
   .dc-thindiv span { flex: 1; height: 1px; background: rgba(86,133,171,0.5); }
   .dc-diamond { width: 5px; height: 5px; transform: rotate(45deg); background: rgba(86,133,171,0.6); flex: none !important; }
-  .dc-intro { font-family: 'Inter', sans-serif; color: rgba(32,36,42,0.8); font-size: 15px; line-height: 1.75; max-width: 520px; width: 100%; margin: 0 auto; text-align: justify; }
-  .dc-block { width: 100%; max-width: 520px; }
-  .dc-block h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 20px; margin-bottom: 8px; }
-  .dc-underline { width: 40px; height: 1px; background: rgba(86,133,171,0.5); margin: 0 auto 12px; }
-  .dc-body { font-size: 15px; color: rgba(32,36,42,0.85); line-height: 1.7; margin-bottom: 10px; text-align: justify; }
-  .dc-note { font-size: 14px; color: rgba(32,36,42,0.65); line-height: 1.7; font-style: italic; text-align: justify; }
-  .dc-insp-label { display: flex; align-items: center; gap: 12px; width: 100%; max-width: 520px; margin-top: 8px; }
+  .dc-intro { font-family: 'Inter', sans-serif; color: rgba(32,36,42,0.82); font-size: 15.5px; line-height: 1.8; max-width: 34em; width: 100%; margin: 0 auto; text-align: left; font-weight: 400; }
+  .dc-block { width: 100%; max-width: 34em; padding-top: 8px; }
+  .dc-block + .dc-block { margin-top: 12px; padding-top: 20px; }
+  .dc-block h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 22px; margin-bottom: 10px; line-height: 1.25; }
+  .dc-underline { width: 40px; height: 1px; background: rgba(86,133,171,0.5); margin: 0 auto 14px; }
+  .dc-body { font-size: 15.5px; color: rgba(32,36,42,0.88); line-height: 1.75; margin-bottom: 12px; text-align: left; font-weight: 400; }
+  .dc-note { font-size: 14.5px; color: rgba(32,36,42,0.68); line-height: 1.75; font-style: italic; text-align: left; font-weight: 400; }
+  .dc-insp-label { display: flex; align-items: center; gap: 12px; width: 100%; max-width: 34em; margin-top: 12px; }
   .dc-insp-label .line { flex: 1; height: 1px; background: rgba(86,133,171,0.5); }
-  .dc-insp-label .label { color: #5685AB; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; white-space: nowrap; }
+  .dc-insp-label .label { color: #5685AB; font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; white-space: nowrap; font-weight: 500; }
   .dc-insp-img { width: 100%; max-width: 720px; }
   .dc-insp-img img { width: 100%; height: auto; display: block; }
   @media (min-width: 480px) {
-    .dc-stack { gap: 28px; }
+    .dc-stack { gap: 32px; }
     .dc-title { font-size: 36px; }
     .dc-thindiv { width: 160px; }
-    .dc-block h3 { font-size: 22px; }
+    .dc-intro { font-size: 16px; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+    .dc-block + .dc-block { margin-top: 16px; padding-top: 24px; }
+    .dc-block h3 { font-size: 24px; }
+    .dc-body { font-size: 16px; text-align: justify; }
+    .dc-note { font-size: 15px; text-align: justify; }
     .dc-insp-label { gap: 16px; }
-    .dc-insp-label .label { font-size: 11px; letter-spacing: 0.25em; }
+    .dc-insp-label .label { font-size: 11px; letter-spacing: 0.22em; }
   }
-  @media (min-width: 768px) { .dc-title { font-size: 42px; } }
+  @media (min-width: 768px) { .dc-title { font-size: 42px; } .dc-stack { gap: 36px; } }
   @media (min-width: 1024px) { .dc-title { font-size: 46px; } }
 
   /* Pausa / RSVP / Presentes */
-  .pause-text { text-align: center; font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: clamp(20px, 5.5vw, 24px); line-height: 1.5; max-width: 680px; margin: 0 auto; padding: 0 4px; }
+  .pause-text { text-align: center; font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: clamp(21px, 5.5vw, 25px); line-height: 1.55; max-width: 680px; margin: 0 auto; padding: 0 4px; }
   @media (min-width: 768px) { .pause-text { font-size: 30px; } }
   @media (min-width: 1024px) { .pause-text { font-size: 36px; } }
   .rsvp-wash, .pres-wash { position: absolute; inset: 0; pointer-events: none; }
   .center-block { position: relative; z-index: 1; text-align: center; max-width: 480px; width: 100%; margin: 0 auto; padding: 0 4px; }
-  .cb-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 28px; margin-bottom: 16px; }
-  .cb-text { font-size: 15px; color: rgba(32,36,42,0.75); line-height: 1.7; margin-bottom: 32px; }
+  .cb-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 28px; margin-bottom: 16px; line-height: 1.15; }
+  .cb-text { font-size: 15.5px; color: rgba(32,36,42,0.78); line-height: 1.75; margin-bottom: 32px; font-weight: 400; }
   .cb-btn a { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; min-width: 200px; border: 1px solid rgba(32,36,42,0.35); padding: 12px 28px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: #20242A; text-decoration: none; transition: color 0.5s, border-color 0.5s; touch-action: manipulation; }
   .cb-btn a:hover { border-color: #5685AB; color: #5685AB; }
-  .cb-note { font-size: 13px; color: rgba(32,36,42,0.5); font-style: italic; margin-top: 20px; line-height: 1.6; }
+  .cb-note { font-size: 13.5px; color: rgba(32,36,42,0.55); font-style: italic; margin-top: 20px; line-height: 1.65; }
   @media (min-width: 480px) {
     .cb-title { font-size: 32px; margin-bottom: 20px; }
-    .cb-text { font-size: 16px; margin-bottom: 40px; }
+    .cb-text { font-size: 16.5px; margin-bottom: 40px; line-height: 1.8; }
     .cb-btn a { padding: 14px 36px; font-size: 14px; letter-spacing: 0.14em; min-width: 220px; }
-    .cb-note { margin-top: 24px; }
+    .cb-note { margin-top: 24px; font-size: 14px; }
   }
   @media (min-width: 768px) { .cb-title { font-size: 40px; } }
 
@@ -350,13 +373,13 @@
   .thanks-overlay { position: absolute; inset: 0; background: #F7F5F1; opacity: 0; transition: opacity 1s ease .1s; }
   .thanks-section.in .thanks-overlay { opacity: .35; }
   .thanks-content { position: relative; max-width: 560px; width: 100%; margin: 0 auto; text-align: center; padding: 0 4px; }
-  .thanks-content h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 30px; margin-bottom: 20px; }
-  .thanks-body { font-size: 15px; color: rgba(32,36,42,0.8); line-height: 1.8; margin-bottom: 28px; }
-  .thanks-sig { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-style: italic; color: rgba(32,36,42,0.75); font-size: 16px; }
+  .thanks-content h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 30px; margin-bottom: 20px; line-height: 1.15; }
+  .thanks-body { font-size: 16px; color: rgba(32,36,42,0.82); line-height: 1.85; margin-bottom: 28px; font-weight: 400; }
+  .thanks-sig { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-style: italic; color: rgba(32,36,42,0.75); font-size: 17px; }
   @media (min-width: 480px) {
     .thanks-section { padding: 72px 24px; }
     .thanks-content h2 { font-size: 34px; margin-bottom: 24px; }
-    .thanks-body { margin-bottom: 32px; }
+    .thanks-body { font-size: 16.5px; margin-bottom: 32px; }
   }
   @media (min-width: 768px) {
     .thanks-content h2 { font-size: 36px; }
